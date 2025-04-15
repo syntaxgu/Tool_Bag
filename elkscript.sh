@@ -19,7 +19,7 @@ log "Starting ELK stack installation"
 
 # Update package index
 log "Updating package index"
-sudo apt-get update $$ apt-get upgrade || { log "ERROR: Failed to update and upgrade package index"; exit 1; }
+sudo apt-get update && apt-get upgrade || { log "ERROR: Failed to update and upgrade package index"; exit 1; }
 
 # Install dependencies
 log "Installing apt-transport-https for curl"
@@ -72,7 +72,7 @@ sudo systemctl start elasticsearch.service || { log "ERROR: Failed to start Elas
 # Wait for Elasticsearch to start (up to 120 seconds)
 log "Waiting for Elasticsearch to start"
 for ((i=1; i<=24; i++)); do
-    curl -k -s https://localhost:9200 > /dev/null && break
+    curl -k -s -o /dev/null -w "%{http_code}" https://localhost:9200 | grep -q 200 > /dev/null && break
     if [ $i -eq 24 ]; then
         log "ERROR: Elasticsearch failed to start within 120 seconds"
         exit 1
@@ -109,6 +109,8 @@ elasticsearch.hosts: ["https://localhost:9200"]
 elasticsearch.username: "elastic"
 elasticsearch.password: "$NEW_PASSWORD"
 elasticsearch.ssl.certificateAuthorities: ["/etc/elasticsearch/elastic-cert.p12"]
+openssl pkcs12 -in elastic-cert.p12 -clcerts -nokeys -out elastic-cert.crt -passin pass:
+# Trusted CA is better for production to allow tool integration and best security best practices
 elasticsearch.ssl.verificationMode: certificate
 EOF
 
@@ -150,21 +152,20 @@ sudo systemctl start logstash.service || { log "ERROR: Failed to start Logstash"
 # Configure firewall
 log "Configuring firewall with ufw"
 sudo apt-get install -y ufw || { log "ERROR: Failed to install ufw"; exit 1; }
-sudo ufw allow from 192.168.0.0/16 to any port 5601 || { log "ERROR: Failed to configure Kibana firewall rule"; exit 1; }
-sudo ufw allow from 192.168.0.0/16 to any port 9200 || { log "ERROR: Failed to configure Elasticsearch firewall rule"; exit 1; }
-sudo ufw allow from 192.168.0.0/16 to any port 514 || { log "ERROR: Failed to configure syslog firewall rule"; exit 1; }
-sudo ufw allow from 192.168.0.0/16 to any port 2055 || { log "ERROR: Failed to configure Netflow firewall rule"; exit 1; }
+sudo ufw allow from 192.168.100.240/24 to any port 5601 || { log "ERROR: Failed to configure Kibana firewall rule"; exit 1; }
+sudo ufw allow from 192.168.100.240/24 to any port 9200 || { log "ERROR: Failed to configure Elasticsearch firewall rule"; exit 1; }
+sudo ufw allow from 192.168.100.240/24 to any port 514 || { log "ERROR: Failed to configure syslog firewall rule"; exit 1; }
+sudo ufw allow from 192.168.100.240/24 to any port 2055 || { log "ERROR: Failed to configure Netflow firewall rule"; exit 1; }
 sudo ufw --force enable || { log "ERROR: Failed to enable ufw"; exit 1; }
 
 # Output instructions
 log "ELK stack installation completed"
 cat <<EOF
 ELK stack installed successfully.
-- Access Kibana at https://<server-ip>:5601 from 192.168.x.x
+- Access Kibana at https://<server-ip>:5601 from 192.168.100.240
 - Username: elastic
-- Password: Stored in /root/elk_credentials.txt
+- Password: Stored in /root/elk_credentials.txt (Never store credentials in plaintext!)
 - Logstash is configured for syslog (port 514) and Netflow (port 2055)
 - Add beats (e.g., Filebeat, Packetbeat) for pfSense data
 - Logs and errors: $LOGFILE
 EOF
-```
