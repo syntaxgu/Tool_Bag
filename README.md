@@ -11,7 +11,7 @@ In order to achieve this, we need to append the following line into /etc/securit
 
 # Note: These changes will only take effect the next time the elasticsearch user opens a new session.
 
-# Backup su file before any modificiations!
+# Backup /su file before any modificiations!
 sudo cp /etc/pam.d/su /etc/pam.d/su.bak
 # uncomment "pam_limits.so" to enable limits
 sudo sed -i '/pam_limits.so/s/^#//' /etc/pam.d/su
@@ -19,6 +19,13 @@ sudo sed -i '/pam_limits.so/s/^#//' /etc/pam.d/su
 grep pam_limits.so /etc/pam.d/su
 # set persistent limit for elasticsearch user (the -a flag tells tee to append instead of overwrite)
 echo "elasticsearch - nofile 65535" | sudo tee -a /etc/security/limits.conf
+# When using Debian packages on systems that use systemd, system limits must be specidifed in (/usr/lib/systemd/system/elasticsearch.service). This file will need to overriden to add a file called (/file systemd/systemelasticsearch.service.d/override.conf)
+# Create (/override.conf) and append service MEMLOCK to file
+sudo touch /etc/systemd/system/elasticsearch.service.d/override.conf echo "[Service]\nLimitMEMLOCK=infinity" | sed tee -a /etc/systemd/system/elasticsearch.service.d/override.conf
+# reload systemd 
+sudo systemctl daemon-reload
 
+# STEP 2: Disable swap
+# 
 
 https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration
