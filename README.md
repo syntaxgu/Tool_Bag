@@ -25,7 +25,23 @@ sudo touch /etc/systemd/system/elasticsearch.service.d/override.conf echo "[Serv
 # reload systemd 
 sudo systemctl daemon-reload
 
-# STEP 2: Disable swap
-# 
+Reference: 
+https://www.elastic.co/docs/deploy-manage/deploy/self-managed/setting-system-settings
+
+# STEP 2: Disable swapspace
+Swapping is very bad for performance and node stability. It can lead to resource hog and slow responses from nodes. There are three approaches to disabling swapping. This script will completely disable swap. 
+# Disable all swap files (This doesn't require a restart of elasticsearch)
+sudo swapoff -a  
+
+Reference: 
+https://www.elastic.co/docs/deploy-manage/deploy/self-managed/setup-configuration-memory
+
+# STEP 3: Increase the file descriptor limit
+Elasticsearch uses alot of file decriptors or file handles, in other words, it needs to handle a lot of files at once. If it can't open enough files, it might crash and lose data. To avoid this, you should set a high limit, like 65,535, for the number of files the Elasticsearch user can open.
+# You can check the 'max_file_descriptors' configured for each node using: 
+GET _nodes/stats/process?filter_path=**.max_file_descriptors
+
+# Increase virtual memory 
+
 
 https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration
