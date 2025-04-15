@@ -7,7 +7,9 @@ Ideally, Elasticsearch should **run alone on a server** and use all of the resou
 
 Systems that use systemd require the user elasticsearch limits are specifies in a **systemd configuration file.** This can be done one of two ways, but for this partiular situation, we will permanently define this in /etc/security/limits.conf
 
-In order to achieve this, we need to append the following line into /etc/security/limits.conf (Ubuntu ignores the limits.conf file for processes started by init.d, We need to enable this by uncommenting the following line in /etc/pam.d/su)
+In order to achieve this, we need to append the following line into /etc/security/limits.conf (Ubuntu ignores the limits.conf file for processes started by init.d, We need to enable this by uncommenting the following line in /etc/pam.d/su) 
+
+# Note: These changes will only take effect the next time the elasticsearch user opens a new session.
 
 # Backup su file before any modificiations!
 sudo cp /etc/pam.d/su /etc/pam.d/su.bak
@@ -17,7 +19,6 @@ sudo sed -i '/pam_limits.so/s/^#//' /etc/pam.d/su
 grep pam_limits.so /etc/pam.d/su
 # set persistent limit for elasticsearch user (the -a flag tells tee to append instead of overwrite)
 echo "elasticsearch - nofile 65535" | sudo tee -a /etc/security/limits.conf
-# Note: This change will only take effect the next time the elasticsearch user opens a new session.
 
 
 https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration
