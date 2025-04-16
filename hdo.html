@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baseline Study Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; max-width: 900px; }
+    .question { margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 6px; background-color: #f9f9f9; }
+    .question h3 { margin-bottom: 10px; }
+    button { margin-top: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .incorrect { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>Baseline Study Quiz</h1>
+<p>Test your knowledge on section 2.1! Click "Check Answer" under each question to test your knowledge.</p>
+
+<div class="question" id="q1">
+  <h3>1. Which tool is commonly used to scan networks and discover open ports?</h3>
+  <input type="radio" name="q1" value="a"> A. WMIC<br>
+  <input type="radio" name="q1" value="b"> B. PowerShell<br>
+  <input type="radio" name="q1" value="c"> C. Nmap<br>
+  <input type="radio" name="q1" value="d"> D. netstat<br>
+  <button onclick="checkAnswer('q1', 'c')">Check Answer</button>
+  <p id="result-q1"></p>
+</div>
+
+<div class="question" id="q2">
+  <h3>2. What command-line utility allows Windows system management through scripting and batch operations?</h3>
+  <input type="radio" name="q2" value="a"> A. netsh<br>
+  <input type="radio" name="q2" value="b"> B. WMIC<br>
+  <input type="radio" name="q2" value="c"> C. SSH<br>
+  <input type="radio" name="q2" value="d"> D. Bash<br>
+  <button onclick="checkAnswer('q2', 'b')">Check Answer</button>
+  <p id="result-q2"></p>
+</div>
+
+<div class="question" id="q3">
+  <h3>3. Which command could you use to list running processes with PowerShell?</h3>
+  <input type="radio" name="q3" value="a"> A. Get-Process<br>
+  <input type="radio" name="q3" value="b"> B. show-proc<br>
+  <input type="radio" name="q3" value="c"> C. ps<br>
+  <input type="radio" name="q3" value="d"> D. taskman<br>
+  <button onclick="checkAnswer('q3', 'a')">Check Answer</button>
+  <p id="result-q3"></p>
+</div>
+
+<div class="question" id="q4">
+  <h3>4. What is the purpose of WMIC?</h3>
+  <input type="radio" name="q4" value="a"> A. To manage Linux packages<br>
+  <input type="radio" name="q4" value="b"> B. To compile C++ code<br>
+  <input type="radio" name="q4" value="c"> C. To interact with Windows Management Instrumentation<br>
+  <input type="radio" name="q4" value="d"> D. To connect to SSH servers<br>
+  <button onclick="checkAnswer('q4', 'c')">Check Answer</button>
+  <p id="result-q4"></p>
+</div>
+
+<div class="question" id="q5">
+  <h3>5. What is the basic syntax of a WMIC command?</h3>
+  <input type="radio" name="q5" value="a"> A. wmic [alias] call [method]<br>
+  <input type="radio" name="q5" value="b"> B. wmic run [command]<br>
+  <input type="radio" name="q5" value="c"> C. wmic /execute [cmd]<br>
+  <input type="radio" name="q5" value="d"> D. wmic [object] do [action]<br>
+  <button onclick="checkAnswer('q5', 'a')">Check Answer</button>
+  <p id="result-q5"></p>
+</div>
+
+<div class="question" id="q6">
+  <h3>6. What is PowerShell primarily used for in system enumeration?</h3>
+  <input type="radio" name="q6" value="a"> A. Web development<br>
+  <input type="radio" name="q6" value="b"> B. System automation and information gathering<br>
+  <input type="radio" name="q6" value="c"> C. Email encryption<br>
+  <input type="radio" name="q6" value="d"> D. GPU acceleration<br>
+  <button onclick="checkAnswer('q6', 'b')">Check Answer</button>
+  <p id="result-q6"></p>
+</div>
+
+<div class="question" id="q7">
+  <h3>7. What does HIPS stand for?</h3>
+  <input type="radio" name="q7" value="a"> A. Host Intrusion Prevention Server<br>
+  <input type="radio" name="q7" value="b"> B. Host-based Intrusion Prevention System<br>
+  <input type="radio" name="q7" value="c"> C. Hardware IPS<br>
+  <input type="radio" name="q7" value="d"> D. Hypervisor Intrusion Protection Software<br>
+  <button onclick="checkAnswer('q7', 'b')">Check Answer</button>
+  <p id="result-q7"></p>
+</div>
+
+<div class="question" id="q8">
+  <h3>8. What Windows tool allows you to manage firewall settings through group policies across multiple computers?</h3>
+  <input type="radio" name="q8" value="a"> A. Local Security Policy<br>
+  <input type="radio" name="q8" value="b"> B. Windows Settings<br>
+  <input type="radio" name="q8" value="c"> C. Group Policy Management<br>
+  <input type="radio" name="q8" value="d"> D. Task Scheduler<br>
+  <button onclick="checkAnswer('q8', 'c')">Check Answer</button>
+  <p id="result-q8"></p>
+</div>
+
+<div class="question" id="q9">
+  <h3>9. In an Active Directory environment, where are firewall rules typically enforced?</h3>
+  <input type="radio" name="q9" value="a"> A. On each local device only<br>
+  <input type="radio" name="q9" value="b"> B. Through GPOs applied to Organizational Units<br>
+  <input type="radio" name="q9" value="c"> C. Through BIOS settings<br>
+  <input type="radio" name="q9" value="d"> D. From the Microsoft Store<br>
+  <button onclick="checkAnswer('q9', 'b')">Check Answer</button>
+  <p id="result-q9"></p>
+</div>
+
+<div class="question" id="q10">
+  <h3>10. What command-line tool can be used to manage firewall rules on Windows systems?</h3>
+  <input type="radio" name="q10" value="a"> A. diskpart<br>
+  <input type="radio" name="q10" value="b"> B. chkdsk<br>
+  <input type="radio" name="q10" value="c"> C. netsh<br>
+  <input type="radio" name="q10" value="d"> D. netdom<br>
+  <button onclick="checkAnswer('q10', 'c')">Check Answer</button>
+  <p id="result-q10"></p>
+</div>
+
+<div class="question" id="q11">
+  <h3>11. What PowerShell cmdlet can be used to configure Windows Defender Firewall rules?</h3>
+  <input type="radio" name="q11" value="a"> A. Set-NetFirewallRule<br>
+  <input type="radio" name="q11" value="b"> B. New-FirewallPolicy<br>
+  <input type="radio" name="q11" value="c"> C. Configure-NetRule<br>
+  <input type="radio" name="q11" value="d"> D. Enable-NetSecurity<br>
+  <button onclick="checkAnswer('q11', 'a')">Check Answer</button>
+  <p id="result-q11"></p>
+</div>
+
+<div class="question" id="q12">
+  <h3>12. What is the primary firewall service built into Windows operating systems?</h3>
+  <input type="radio" name="q12" value="a"> A. Microsoft Firewall Toolkit<br>
+  <input type="radio" name="q12" value="b"> B. Windows Defender Firewall<br>
+  <input type="radio" name="q12" value="c"> C. Firewall Manager<br>
+  <input type="radio" name="q12" value="d"> D. Windows Internet Shield<br>
+  <button onclick="checkAnswer('q12', 'b')">Check Answer</button>
+  <p id="result-q12"></p>
+</div>
+
+<div class="question" id="q13">
+  <h3>13. What has replaced SysV-style init systems in modern Linux distributions?</h3>
+  <input type="radio" name="q13" value="a"> A. Upstart<br>
+  <input type="radio" name="q13" value="b"> B. systemd<br>
+  <input type="radio" name="q13" value="c"> C. cron<br>
+  <input type="radio" name="q13" value="d"> D. bashrc<br>
+  <button onclick="checkAnswer('q13', 'b')">Check Answer</button>
+  <p id="result-q13"></p>
+</div>
+
+<div class="question" id="q14">
+  <h3>14. Which systemd target corresponds to a graphical multi-user interface?</h3>
+  <input type="radio" name="q14" value="a"> A. multi-user.target<br>
+  <input type="radio" name="q14" value="b"> B. graphical.target<br>
+  <input type="radio" name="q14" value="c"> C. rescue.target<br>
+  <input type="radio" name="q14" value="d"> D. reboot.target<br>
+  <button onclick="checkAnswer('q14', 'b')">Check Answer</button>
+  <p id="result-q14"></p>
+</div>
+
+<div class="question" id="q15">
+  <h3>15. What does run level 0 signify?</h3>
+  <input type="radio" name="q15" value="a"> A. Single-user mode<br>
+  <input type="radio" name="q15" value="b"> B. Reboot<br>
+  <input type="radio" name="q15" value="c"> C. Halt<br>
+  <input type="radio" name="q15" value="d"> D. Multi-user with GUI<br>
+  <button onclick="checkAnswer('q15', 'c')">Check Answer</button>
+  <p id="result-q15"></p>
+</div>
+<div class="question" id="q16">
+  <h3>16. Which run level corresponds to full multi-user mode with networking but no GUI?</h3>
+  <input type="radio" name="q16" value="a"> A. Run level 2<br>
+  <input type="radio" name="q16" value="b"> B. Run level 3<br>
+  <input type="radio" name="q16" value="c"> C. Run level 4<br>
+  <input type="radio" name="q16" value="d"> D. Run level 5<br>
+  <button onclick="checkAnswer('q16', 'b')">Check Answer</button>
+  <p id="result-q16"></p>
+</div>
+
+<div class="question" id="q17">
+  <h3>17. Which command shows the current run level in Linux?</h3>
+  <input type="radio" name="q17" value="a"> A. showrun<br>
+  <input type="radio" name="q17" value="b"> B. runlevel<br>
+  <input type="radio" name="q17" value="c"> C. levelcheck<br>
+  <input type="radio" name="q17" value="d"> D. whoami<br>
+  <button onclick="checkAnswer('q17', 'b')">Check Answer</button>
+  <p id="result-q17"></p>
+</div>
+
+<div class="question" id="q18">
+  <h3>18. What is the correct command to change to run level 3 using SysVinit?</h3>
+  <input type="radio" name="q18" value="a"> A. sudo init 3<br>
+  <input type="radio" name="q18" value="b"> B. runlevel 3<br>
+  <input type="radio" name="q18" value="c"> C. switch 3<br>
+  <input type="radio" name="q18" value="d"> D. sudo level 3<br>
+  <button onclick="checkAnswer('q18', 'a')">Check Answer</button>
+  <p id="result-q18"></p>
+</div>
+
+<div class="question" id="q19">
+  <h3>19. Which directory contains scripts for each run level in older Linux systems?</h3>
+  <input type="radio" name="q19" value="a"> A. /run/init/<br>
+  <input type="radio" name="q19" value="b"> B. /sys/run/<br>
+  <input type="radio" name="q19" value="c"> C. /etc/rc.d/<br>
+  <input type="radio" name="q19" value="d"> D. /lib/systemd/<br>
+  <button onclick="checkAnswer('q19', 'c')">Check Answer</button>
+  <p id="result-q19"></p>
+</div>
+
+<div class="question" id="q20">
+  <h3>20. What is the systemd equivalent of run level 1 (single-user mode)?</h3>
+  <input type="radio" name="q20" value="a"> A. multi-user.target<br>
+  <input type="radio" name="q20" value="b"> B. graphical.target<br>
+  <input type="radio" name="q20" value="c"> C. rescue.target<br>
+  <input type="radio" name="q20" value="d"> D. reboot.target<br>
+  <button onclick="checkAnswer('q20', 'c')">Check Answer</button>
+  <p id="result-q20"></p>
+</div>
+
+<div class="question" id="q21">
+  <h3>21. Which systemd target is used to reboot a Linux system?</h3>
+  <input type="radio" name="q21" value="a"> A. reboot.target<br>
+  <input type="radio" name="q21" value="b"> B. restart.target<br>
+  <input type="radio" name="q21" value="c"> C. multi-user.target<br>
+  <input type="radio" name="q21" value="d"> D. shutdown.target<br>
+  <button onclick="checkAnswer('q21', 'a')">Check Answer</button>
+  <p id="result-q21"></p>
+</div>
+
+<div class="question" id="q22">
+  <h3>22. Why are run levels important in Linux systems?</h3>
+  <input type="radio" name="q22" value="a"> A. They allow configuration of the GUI appearance.<br>
+  <input type="radio" name="q22" value="b"> B. They determine the default user password.<br>
+  <input type="radio" name="q22" value="c"> C. They control which services and targets are started during boot.<br>
+  <input type="radio" name="q22" value="d"> D. They enable wireless drivers.<br>
+  <button onclick="checkAnswer('q22', 'c')">Check Answer</button>
+  <p id="result-q22"></p>
+</div>
+
+<div class="question" id="q23">
+  <h3>23. What is the primary purpose of creating a system baseline?</h3>
+  <input type="radio" name="q23" value="a"> A. To reduce boot time<br>
+  <input type="radio" name="q23" value="b"> B. To compare system changes over time<br>
+  <input type="radio" name="q23" value="c"> C. To install new drivers<br>
+  <input type="radio" name="q23" value="d"> D. To automate updates<br>
+  <button onclick="checkAnswer('q23', 'b')">Check Answer</button>
+  <p id="result-q23"></p>
+</div>
+
+<div class="question" id="q24">
+  <h3>24. Which of the following is NOT typically part of a baseline?</h3>
+  <input type="radio" name="q24" value="a"> A. User account roles and permissions<br>
+  <input type="radio" name="q24" value="b"> B. Network configuration<br>
+  <input type="radio" name="q24" value="c"> C. Installed video games<br>
+  <input type="radio" name="q24" value="d"> D. Security policies<br>
+  <button onclick="checkAnswer('q24', 'c')">Check Answer</button>
+  <p id="result-q24"></p>
+</div>
+
+<div class="question" id="q25">
+  <h3>25. What is the first step in building a system baseline?</h3>
+  <input type="radio" name="q25" value="a"> A. Create automated scripts<br>
+  <input type="radio" name="q25" value="b"> B. Document firewall rules<br>
+  <input type="radio" name="q25" value="c"> C. Identify the scope and define the standard<br>
+  <input type="radio" name="q25" value="d"> D. Update the BIOS<br>
+  <button onclick="checkAnswer('q25', 'c')">Check Answer</button>
+  <p id="result-q25"></p>
+</div>
+
+<div class="question" id="q26">
+  <h3>26. Which tool can be used to implement baseline configurations across Windows systems?</h3>
+  <input type="radio" name="q26" value="a"> A. Disk Cleanup<br>
+  <input type="radio" name="q26" value="b"> B. Registry Editor<br>
+  <input type="radio" name="q26" value="c"> C. Group Policy Management Console<br>
+  <input type="radio" name="q26" value="d"> D. Control Panel<br>
+  <button onclick="checkAnswer('q26', 'c')">Check Answer</button>
+  <p id="result-q26"></p>
+</div>
+
+<div class="question" id="q27">
+  <h3>27. How can you compare the current system state to a baseline using PowerShell?</h3>
+  <input type="radio" name="q27" value="a"> A. Use Compare-Object<br>
+  <input type="radio" name="q27" value="b"> B. Use Get-EventLog<br>
+  <input type="radio" name="q27" value="c"> C. Use Select-String<br>
+  <input type="radio" name="q27" value="d"> D. Use New-Item<br>
+  <button onclick="checkAnswer('q27', 'a')">Check Answer</button>
+  <p id="result-q27"></p>
+</div>
+
+<div class="question" id="q28">
+  <h3>28. What is one benefit of automated monitoring over manual reviews?</h3>
+  <input type="radio" name="q28" value="a"> A. Easier to understand<br>
+  <input type="radio" name="q28" value="b"> B. Provides real-time alerts<br>
+  <input type="radio" name="q28" value="c"> C. Requires more user input<br>
+  <input type="radio" name="q28" value="d"> D. Only works on Linux<br>
+  <button onclick="checkAnswer('q28', 'b')">Check Answer</button>
+  <p id="result-q28"></p>
+</div>
+
+<div class="question" id="q29">
+  <h3>29. Which of the following is a valid manual method for comparing current state to baseline?</h3>
+  <input type="radio" name="q29" value="a"> A. Setting up a firewall rule<br>
+  <input type="radio" name="q29" value="b"> B. Using vimdiff to review configuration files<br>
+  <input type="radio" name="q29" value="c"> C. Rebooting the system<br>
+  <input type="radio" name="q29" value="d"> D. Sending logs via email<br>
+  <button onclick="checkAnswer('q29', 'b')">Check Answer</button>
+  <p id="result-q29"></p>
+</div>
+
+<div class="question" id="q30">
+  <h3>30. Which PowerShell command is used to compare two objects, such as current and baseline configs?</h3>
+  <input type="radio" name="q30" value="a"> A. Diff-File<br>
+  <input type="radio" name="q30" value="b"> B. Compare-Object<br>
+  <input type="radio" name="q30" value="c"> C. Test-Compare<br>
+  <input type="radio" name="q30" value="d"> D. Get-Difference<br>
+  <button onclick="checkAnswer('q30', 'b')">Check Answer</button>
+  <p id="result-q30"></p>
+</div>
+
+<div class="question" id="q31">
+  <h3>31. What role do logs play in a system baseline?</h3>
+  <input type="radio" name="q31" value="a"> A. Logs allow systems to boot faster<br>
+  <input type="radio" name="q31" value="b"> B. Logs serve as decoration<br>
+  <input type="radio" name="q31" value="c"> C. Logs are part of monitoring and validating compliance<br>
+  <input type="radio" name="q31" value="d"> D. Logs only apply to gaming systems<br>
+  <button onclick="checkAnswer('q31', 'c')">Check Answer</button>
+  <p id="result-q31"></p>
+</div>
+
+<div class="question" id="q32">
+  <h3>32. Which method helps ensure a device stays compliant with a baseline over time?</h3>
+  <input type="radio" name="q32" value="a"> A. Updating BIOS<br>
+  <input type="radio" name="q32" value="b"> B. Installing new printers<br>
+  <input type="radio" name="q32" value="c"> C. Regular audits and monitoring<br>
+  <input type="radio" name="q32" value="d"> D. Formatting hard drives<br>
+  <button onclick="checkAnswer('q32', 'c')">Check Answer</button>
+  <p id="result-q32"></p>
+</div>
+
+<div class="question" id="q33">
+  <h3>33. What is the main purpose of security hardware?</h3>
+  <input type="radio" name="q33" value="a"> A. To increase internet speed<br>
+  <input type="radio" name="q33" value="b"> B. To protect systems using physical or dedicated security devices<br>
+  <input type="radio" name="q33" value="c"> C. To lower CPU usage<br>
+  <input type="radio" name="q33" value="d"> D. To update applications<br>
+  <button onclick="checkAnswer('q33', 'b')">Check Answer</button>
+  <p id="result-q33"></p>
+</div>
+
+<div class="question" id="q34">
+  <h3>34. Which of the following is NOT considered a security hardware device?</h3>
+  <input type="radio" name="q34" value="a"> A. Firewall appliance<br>
+  <input type="radio" name="q34" value="b"> B. Hardware token<br>
+  <input type="radio" name="q34" value="c"> C. Software antivirus<br>
+  <input type="radio" name="q34" value="d"> D. Router<br>
+  <button onclick="checkAnswer('q34', 'c')">Check Answer</button>
+  <p id="result-q34"></p>
+</div>
+
+<div class="question" id="q35">
+  <h3>35. What security feature is commonly found in both hardware and software?</h3>
+  <input type="radio" name="q35" value="a"> A. Power saving<br>
+  <input type="radio" name="q35" value="b"> B. Encryption and authentication<br>
+  <input type="radio" name="q35" value="c"> C. UI scaling<br>
+  <input type="radio" name="q35" value="d"> D. Multimedia drivers<br>
+  <button onclick="checkAnswer('q35', 'b')">Check Answer</button>
+  <p id="result-q35"></p>
+</div>
+
+<div class="question" id="q36">
+  <h3>36. Which of the following is considered security software?</h3>
+  <input type="radio" name="q36" value="a"> A. Ethernet cable<br>
+  <input type="radio" name="q36" value="b"> B. Password manager<br>
+  <input type="radio" name="q36" value="c"> C. Switch<br>
+  <input type="radio" name="q36" value="d"> D. BIOS<br>
+  <button onclick="checkAnswer('q36', 'b')">Check Answer</button>
+  <p id="result-q36"></p>
+</div>
+
+<div class="question" id="q37">
+  <h3>37. What does antivirus software primarily protect against?</h3>
+  <input type="radio" name="q37" value="a"> A. Hardware failure<br>
+  <input type="radio" name="q37" value="b"> B. Unauthorized logins<br>
+  <input type="radio" name="q37" value="c"> C. Malware and viruses<br>
+  <input type="radio" name="q37" value="d"> D. Memory leaks<br>
+  <button onclick="checkAnswer('q37', 'c')">Check Answer</button>
+  <p id="result-q37"></p>
+</div>
+
+<div class="question" id="q38">
+  <h3>38. What are Windows Prefetch files used for?</h3>
+  <input type="radio" name="q38" value="a"> A. Track installed updates<br>
+  <input type="radio" name="q38" value="b"> B. Speed up application loading<br>
+  <input type="radio" name="q38" value="c"> C. Log user logins<br>
+  <input type="radio" name="q38" value="d"> D. Store passwords<br>
+  <button onclick="checkAnswer('q38', 'b')">Check Answer</button>
+  <p id="result-q38"></p>
+</div>
+
+<div class="question" id="q39">
+  <h3>39. Where are Windows prefetch files typically stored?</h3>
+  <input type="radio" name="q39" value="a"> A. C:\Windows\System32\Temp<br>
+  <input type="radio" name="q39" value="b"> B. C:\Prefetch<br>
+  <input type="radio" name="q39" value="c"> C:\Windows\Prefetch<br>
+  <input type="radio" name="q39" value="d"> D. C:\Users\Temp<br>
+  <button onclick="checkAnswer('q39', 'c')">Check Answer</button>
+  <p id="result-q39"></p>
+</div>
+
+<div class="question" id="q40">
+  <h3>40. Up to how many prefetch files can Windows store?</h3>
+  <input type="radio" name="q40" value="a"> A. 64<br>
+  <input type="radio" name="q40" value="b"> B. 128<br>
+  <input type="radio" name="q40" value="c"> C. 1024<br>
+  <input type="radio" name="q40" value="d"> D. 512<br>
+  <button onclick="checkAnswer('q40', 'b')">Check Answer</button>
+  <p id="result-q40"></p>
+</div>
+
+<div class="question" id="q41">
+  <h3>41. What are LNK files commonly used for?</h3>
+  <input type="radio" name="q41" value="a"> A. Store encrypted data<br>
+  <input type="radio" name="q41" value="b"> B. Compress folders<br>
+  <input type="radio" name="q41" value="c"> C. Act as Windows shortcut files<br>
+  <input type="radio" name="q41" value="d"> D. Launch BIOS setup<br>
+  <button onclick="checkAnswer('q41', 'c')">Check Answer</button>
+  <p id="result-q41"></p>
+</div>
+
+<div class="question" id="q42">
+  <h3>42. Which artifact helps determine when a file was last accessed by a user?</h3>
+  <input type="radio" name="q42" value="a"> A. temp.sys<br>
+  <input type="radio" name="q42" value="b"> B. LNK file<br>
+  <input type="radio" name="q42" value="c"> C. winlogon.exe<br>
+  <input type="radio" name="q42" value="d"> D. system32.log<br>
+  <button onclick="checkAnswer('q42', 'b')">Check Answer</button>
+  <p id="result-q42"></p>
+</div>
+
+<div class="question" id="q43">
+  <h3>43. Where are LNK shortcut files usually stored for a user in Windows?</h3>
+  <input type="radio" name="q43" value="a"> A. C:\Users\[User]\AppData\Roaming\Microsoft\Windows\Recent<br>
+  <input type="radio" name="q43" value="b"> B. C:\Windows\System32\Shortcuts<br>
+  <input type="radio" name="q43" value="c"> C:\Program Files\Shortcuts<br>
+  <input type="radio" name="q43" value="d"> D. C:\Windows\Prefetch<br>
+  <button onclick="checkAnswer('q43', 'a')">Check Answer</button>
+  <p id="result-q43"></p>
+</div>
+
+<div class="question" id="q44">
+  <h3>44. Which of the following best describes the role of a password manager?</h3>
+  <input type="radio" name="q44" value="a"> A. Stores and organizes passwords securely<br>
+  <input type="radio" name="q44" value="b"> B. Deletes unused files<br>
+  <input type="radio" name="q44" value="c"> C. Speeds up the boot time<br>
+  <input type="radio" name="q44" value="d"> D. Manages firewall rules<br>
+  <button onclick="checkAnswer('q44', 'a')">Check Answer</button>
+  <p id="result-q44"></p>
+</div>
+
+<div class="question" id="q45">
+  <h3>45. What type of software is antispyware?</h3>
+  <input type="radio" name="q45" value="a"> A. Development software<br>
+  <input type="radio" name="q45" value="b"> B. Entertainment software<br>
+  <input type="radio" name="q45" value="c"> C. Security software<br>
+  <input type="radio" name="q45" value="d"> D. Accounting software<br>
+  <button onclick="checkAnswer('q45', 'c')">Check Answer</button>
+  <p id="result-q45"></p>
+</div>
+
+<div class="question" id="q31">
+  <h3>31. What role do logs play in a system baseline?</h3>
+  <input type="radio" name="q31" value="a"> A. Logs allow systems to boot faster<br>
+  <input type="radio" name="q31" value="b"> B. Logs serve as decoration<br>
+  <input type="radio" name="q31" value="c"> C. Logs are part of monitoring and validating compliance<br>
+  <input type="radio" name="q31" value="d"> D. Logs only apply to gaming systems<br>
+  <button onclick="checkAnswer('q31', 'c')">Check Answer</button>
+  <p id="result-q31"></p>
+</div>
+
+<div class="question" id="q32">
+  <h3>32. Which method helps ensure a device stays compliant with a baseline over time?</h3>
+  <input type="radio" name="q32" value="a"> A. Updating BIOS<br>
+  <input type="radio" name="q32" value="b"> B. Installing new printers<br>
+  <input type="radio" name="q32" value="c"> C. Regular audits and monitoring<br>
+  <input type="radio" name="q32" value="d"> D. Formatting hard drives<br>
+  <button onclick="checkAnswer('q32', 'c')">Check Answer</button>
+  <p id="result-q32"></p>
+</div>
+
+<div class="question" id="q33">
+  <h3>33. What is the main purpose of security hardware?</h3>
+  <input type="radio" name="q33" value="a"> A. To increase internet speed<br>
+  <input type="radio" name="q33" value="b"> B. To protect systems using physical or dedicated security devices<br>
+  <input type="radio" name="q33" value="c"> C. To lower CPU usage<br>
+  <input type="radio" name="q33" value="d"> D. To update applications<br>
+  <button onclick="checkAnswer('q33', 'b')">Check Answer</button>
+  <p id="result-q33"></p>
+</div>
+
+<div class="question" id="q34">
+  <h3>34. Which of the following is NOT considered a security hardware device?</h3>
+  <input type="radio" name="q34" value="a"> A. Firewall appliance<br>
+  <input type="radio" name="q34" value="b"> B. Hardware token<br>
+  <input type="radio" name="q34" value="c"> C. Software antivirus<br>
+  <input type="radio" name="q34" value="d"> D. Router<br>
+  <button onclick="checkAnswer('q34', 'c')">Check Answer</button>
+  <p id="result-q34"></p>
+</div>
+
+<div class="question" id="q35">
+  <h3>35. What security feature is commonly found in both hardware and software?</h3>
+  <input type="radio" name="q35" value="a"> A. Power saving<br>
+  <input type="radio" name="q35" value="b"> B. Encryption and authentication<br>
+  <input type="radio" name="q35" value="c"> C. UI scaling<br>
+  <input type="radio" name="q35" value="d"> D. Multimedia drivers<br>
+  <button onclick="checkAnswer('q35', 'b')">Check Answer</button>
+  <p id="result-q35"></p>
+</div>
+
+<div class="question" id="q36">
+  <h3>36. Which of the following is considered security software?</h3>
+  <input type="radio" name="q36" value="a"> A. Ethernet cable<br>
+  <input type="radio" name="q36" value="b"> B. Password manager<br>
+  <input type="radio" name="q36" value="c"> C. Switch<br>
+  <input type="radio" name="q36" value="d"> D. BIOS<br>
+  <button onclick="checkAnswer('q36', 'b')">Check Answer</button>
+  <p id="result-q36"></p>
+</div>
+
+<div class="question" id="q37">
+  <h3>37. What does antivirus software primarily protect against?</h3>
+  <input type="radio" name="q37" value="a"> A. Hardware failure<br>
+  <input type="radio" name="q37" value="b"> B. Unauthorized logins<br>
+  <input type="radio" name="q37" value="c"> C. Malware and viruses<br>
+  <input type="radio" name="q37" value="d"> D. Memory leaks<br>
+  <button onclick="checkAnswer('q37', 'c')">Check Answer</button>
+  <p id="result-q37"></p>
+</div>
+
+<div class="question" id="q38">
+  <h3>38. What are Windows Prefetch files used for?</h3>
+  <input type="radio" name="q38" value="a"> A. Track installed updates<br>
+  <input type="radio" name="q38" value="b"> B. Speed up application loading<br>
+  <input type="radio" name="q38" value="c"> C. Log user logins<br>
+  <input type="radio" name="q38" value="d"> D. Store passwords<br>
+  <button onclick="checkAnswer('q38', 'b')">Check Answer</button>
+  <p id="result-q38"></p>
+</div>
+
+<div class="question" id="q39">
+  <h3>39. Where are Windows prefetch files typically stored?</h3>
+  <input type="radio" name="q39" value="a"> A. C:\Windows\System32\Temp<br>
+  <input type="radio" name="q39" value="b"> B. C:\Prefetch<br>
+  <input type="radio" name="q39" value="c"> C:\Windows\Prefetch<br>
+  <input type="radio" name="q39" value="d"> D. C:\Users\Temp<br>
+  <button onclick="checkAnswer('q39', 'c')">Check Answer</button>
+  <p id="result-q39"></p>
+</div>
+
+<div class="question" id="q40">
+  <h3>40. Up to how many prefetch files can Windows store?</h3>
+  <input type="radio" name="q40" value="a"> A. 64<br>
+  <input type="radio" name="q40" value="b"> B. 128<br>
+  <input type="radio" name="q40" value="c"> C. 1024<br>
+  <input type="radio" name="q40" value="d"> D. 512<br>
+  <button onclick="checkAnswer('q40', 'b')">Check Answer</button>
+  <p id="result-q40"></p>
+</div>
+
+<div class="question" id="q41">
+  <h3>41. What are LNK files commonly used for?</h3>
+  <input type="radio" name="q41" value="a"> A. Store encrypted data<br>
+  <input type="radio" name="q41" value="b"> B. Compress folders<br>
+  <input type="radio" name="q41" value="c"> C. Act as Windows shortcut files<br>
+  <input type="radio" name="q41" value="d"> D. Launch BIOS setup<br>
+  <button onclick="checkAnswer('q41', 'c')">Check Answer</button>
+  <p id="result-q41"></p>
+</div>
+
+<div class="question" id="q42">
+  <h3>42. Which artifact helps determine when a file was last accessed by a user?</h3>
+  <input type="radio" name="q42" value="a"> A. temp.sys<br>
+  <input type="radio" name="q42" value="b"> B. LNK file<br>
+  <input type="radio" name="q42" value="c"> C. winlogon.exe<br>
+  <input type="radio" name="q42" value="d"> D. system32.log<br>
+  <button onclick="checkAnswer('q42', 'b')">Check Answer</button>
+  <p id="result-q42"></p>
+</div>
+
+<div class="question" id="q43">
+  <h3>43. Where are LNK shortcut files usually stored for a user in Windows?</h3>
+  <input type="radio" name="q43" value="a"> A. C:\Users\[User]\AppData\Roaming\Microsoft\Windows\Recent<br>
+  <input type="radio" name="q43" value="b"> B. C:\Windows\System32\Shortcuts<br>
+  <input type="radio" name="q43" value="c"> C:\Program Files\Shortcuts<br>
+  <input type="radio" name="q43" value="d"> D. C:\Windows\Prefetch<br>
+  <button onclick="checkAnswer('q43', 'a')">Check Answer</button>
+  <p id="result-q43"></p>
+</div>
+
+<div class="question" id="q44">
+  <h3>44. Which of the following best describes the role of a password manager?</h3>
+  <input type="radio" name="q44" value="a"> A. Stores and organizes passwords securely<br>
+  <input type="radio" name="q44" value="b"> B. Deletes unused files<br>
+  <input type="radio" name="q44" value="c"> C. Speeds up the boot time<br>
+  <input type="radio" name="q44" value="d"> D. Manages firewall rules<br>
+  <button onclick="checkAnswer('q44', 'a')">Check Answer</button>
+  <p id="result-q44"></p>
+</div>
+
+<div class="question" id="q45">
+  <h3>45. What type of software is antispyware?</h3>
+  <input type="radio" name="q45" value="a"> A. Development software<br>
+  <input type="radio" name="q45" value="b"> B. Entertainment software<br>
+  <input type="radio" name="q45" value="c"> C. Security software<br>
+  <input type="radio" name="q45" value="d"> D. Accounting software<br>
+  <button onclick="checkAnswer('q45', 'c')">Check Answer</button>
+  <p id="result-q45"></p>
+</div>
+
+<div class="question" id="q46">
+  <h3>46. What is the primary goal of baselining authorized applications?</h3>
+  <input type="radio" name="q46" value="a"> A. To create backups<br>
+  <input type="radio" name="q46" value="b"> B. To identify and monitor approved applications<br>
+  <input type="radio" name="q46" value="c"> C. To clean up storage<br>
+  <input type="radio" name="q46" value="d"> D. To update software licenses<br>
+  <button onclick="checkAnswer('q46', 'b')">Check Answer</button>
+  <p id="result-q46"></p>
+</div>
+
+<div class="question" id="q47">
+  <h3>47. What is a nominal baseline?</h3>
+  <input type="radio" name="q47" value="a"> A. A list of required updates<br>
+  <input type="radio" name="q47" value="b"> B. A standard reference of how the system normally operates<br>
+  <input type="radio" name="q47" value="c"> C. A list of mission goals<br>
+  <input type="radio" name="q47" value="d"> D. A type of firewall configuration<br>
+  <button onclick="checkAnswer('q47', 'b')">Check Answer</button>
+  <p id="result-q47"></p>
+</div>
+
+<div class="question" id="q48">
+  <h3>48. What should be considered when deciding how often to perform baselining?</h3>
+  <input type="radio" name="q48" value="a"> A. Weather conditions<br>
+  <input type="radio" name="q48" value="b"> B. Number of printers<br>
+  <input type="radio" name="q48" value="c"> C. Rate of system changes and asset criticality<br>
+  <input type="radio" name="q48" value="d"> D. Operating system color scheme<br>
+  <button onclick="checkAnswer('q48', 'c')">Check Answer</button>
+  <p id="result-q48"></p>
+</div>
+
+<div class="question" id="q49">
+  <h3>49. Which of the following is NOT part of environment mapping for a baseline?</h3>
+  <input type="radio" name="q49" value="a"> A. Operating systems<br>
+  <input type="radio" name="q49" value="b"> B. Ports and protocols<br>
+  <input type="radio" name="q49" value="c"> C. Monitor resolution<br>
+  <input type="radio" name="q49" value="d"> D. Network devices<br>
+  <button onclick="checkAnswer('q49', 'c')">Check Answer</button>
+  <p id="result-q49"></p>
+</div>
+
+<div class="question" id="q50">
+  <h3>50. Informal mission mapping involves interviews with which three main groups?</h3>
+  <input type="radio" name="q50" value="a"> A. Developers, SysAdmins, and Help Desk<br>
+  <input type="radio" name="q50" value="b"> B. Users, Hackers, and Vendors<br>
+  <input type="radio" name="q50" value="c"> C. Mission Owners, Mission Users, and Mission Maintainers<br>
+  <input type="radio" name="q50" value="d"> D. Stakeholders, Auditors, and Developers<br>
+  <button onclick="checkAnswer('q50', 'c')">Check Answer</button>
+  <p id="result-q50"></p>
+</div>
+
+<div class="question" id="q51">
+  <h3>51. What is the role of explorer.exe in Windows?</h3>
+  <input type="radio" name="q51" value="a"> A. It handles kernel drivers<br>
+  <input type="radio" name="q51" value="b"> B. It provides the graphical user interface<br>
+  <input type="radio" name="q51" value="c"> C. It starts network services<br>
+  <input type="radio" name="q51" value="d"> D. It runs antivirus software<br>
+  <button onclick="checkAnswer('q51', 'b')">Check Answer</button>
+  <p id="result-q51"></p>
+</div>
+
+<div class="question" id="q52">
+  <h3>52. What is the purpose of svchost.exe in Windows?</h3>
+  <input type="radio" name="q52" value="a"> A. To manage web hosting<br>
+  <input type="radio" name="q52" value="b"> B. To run multiple services under a single process<br>
+  <input type="radio" name="q52" value="c"> C. To monitor power settings<br>
+  <input type="radio" name="q52" value="d"> D. To update drivers<br>
+  <button onclick="checkAnswer('q52', 'b')">Check Answer</button>
+  <p id="result-q52"></p>
+</div>
+
+<div class="question" id="q53">
+  <h3>53. What is lsass.exe used for in Windows?</h3>
+  <input type="radio" name="q53" value="a"> A. File compression<br>
+  <input type="radio" name="q53" value="b"> B. Display management<br>
+  <input type="radio" name="q53" value="c"> C. Authentication and login validation<br>
+  <input type="radio" name="q53" value="d"> D. System backups<br>
+  <button onclick="checkAnswer('q53', 'c')">Check Answer</button>
+  <p id="result-q53"></p>
+</div>
+
+<div class="question" id="q54">
+  <h3>54. What is the first process launched by the Linux kernel?</h3>
+  <input type="radio" name="q54" value="a"> A. sshd<br>
+  <input type="radio" name="q54" value="b"> B. bash<br>
+  <input type="radio" name="q54" value="c"> C. init or systemd<br>
+  <input type="radio" name="q54" value="d"> D. cron<br>
+  <button onclick="checkAnswer('q54', 'c')">Check Answer</button>
+  <p id="result-q54"></p>
+</div>
+
+<div class="question" id="q55">
+  <h3>55. What is the Linux equivalent to Windows kernel-mode drivers?</h3>
+  <input type="radio" name="q55" value="a"> A. Startup scripts<br>
+  <input type="radio" name="q55" value="b"> B. Shared objects<br>
+  <input type="radio" name="q55" value="c"> C. Loaded Kernel Modules (LKM)<br>
+  <input type="radio" name="q55" value="d"> D. GRUB config files<br>
+  <button onclick="checkAnswer('q55', 'c')">Check Answer</button>
+  <p id="result-q55"></p>
+</div>
+
+<!-- JavaScript & closing tags -->
+<script>
+  function checkAnswer(questionId, correctAnswer) {
+    const radios = document.getElementsByName(questionId);
+    let selected = '';
+    for (const radio of radios) {
+      if (radio.checked) {
+        selected = radio.value;
+        break;
+      }
+    }
+    const result = document.getElementById('result-' + questionId);
+    if (selected === correctAnswer) {
+      result.textContent = 'Correct!';
+      result.className = 'correct';
+    } else {
+      result.textContent = 'Incorrect. Try again!';
+      result.className = 'incorrect';
+    }
+  }
+</script>
+
+</body>
+</html>
