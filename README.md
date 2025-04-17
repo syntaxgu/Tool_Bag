@@ -89,10 +89,10 @@ You can obtain the auto-generated CA certificate for the HTTP layer by running:
 Copy the certificate to your local machine an dconfigure your device to establish trust when it connect to elasticsearch. 
 
 ## Reset the elastic superuser password
-Because Elasticsearch runs with systemd and not in a terminal, the elastic superuser password is not output when Elasticsearch starts for the first time. Use the `elasticsearch-reset-password` tool tool to set the password for the user. This only needs to be done once for the cluster, and can be done as soon as the first node is started.
+Because Elasticsearch runs with systemd and not in a terminal, the elastic superuser password is not output when Elasticsearch starts for the first time. Use the `elasticsearch-reset-password` tool to set the password for the user. This only needs to be done once for the cluster, and can be done as soon as the first node is started. The location for these commands are located within `/usr/share/elasticsearch/bin` You will need to `./` to run the commands.
 
 reset the elasticsearch password: 
-`bin/elasticsearch-reset-password -u elastic`
+`./elasticsearch-reset-password -u elastic`
 
 Store the elastic users password as an enviornment variable in your shell. 
 `export ELASTIC_PASSWORD="your_password"`
@@ -124,3 +124,6 @@ To configure Kibana to start automatically when the system starts, run the follo
 `sudo systemctl daemon-reload`
 `sudo systemctl enable kibana.service`
 
+## Startup Kibana 
+
+https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-kibana-with-debian-package
