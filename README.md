@@ -11,10 +11,10 @@ APM
 Elasticsearch Hadoop
 
 # Elasticsearch
-## Before you start, It is worth mentionong that Elastic recommends you configure your operating system using this guide:
+## Before you start, Elastic recommends you configure your operating system using this guide:
 https://www.elastic.co/docs/deploy-manage/deploy/self-managed/important-system-configuration
 
-Since you'll be using an Ubuntu or Debian base package for our elasticseach install we will only need to configure some specific items and not all. This is also assuming your ubuntu or debian installtion is using systemd. If you are unsure you can run `man init` and you will see which man page you end up on. 
+Since this guide will be using an Ubuntu or a Debian base package for our elasticseach install, we will only need to configure some specific items and not all. This is also assuming your Ubuntu/Debian installtion is using systemd. If you are unsure you can run `man init` and you will see which man page you end up on. 
 
 
 # Download and install the debian package manually
