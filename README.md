@@ -125,4 +125,75 @@ To configure Kibana to start automatically when the system starts, run the follo
 
 ## Startup Kibana 
 
+Kibana guide ends here for the time being. I am still in the process of compiling my notes. For now, please use the link below to continue Kibana setup. :) 
+
 https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-kibana-with-debian-package
+
+Reach out if you have any questions!
+
+
+## Installing an Elastic Agent 
+
+Elastic Agent is a single, unified way to add monitoring for logs, metrics, and other types of data to a host. It can also protect hosts from security threats, query data from operating systems, forward data from remote services or hardware, and more. A single agent makes it easier and faster to deploy monitoring across your infrastructure. Each agent has a single policy you can update to add integrations for new data sources, security protections, and more.
+
+As the following diagram illustrates, Elastic Agent can monitor the host where it's deployed, and it can collect and forward data from remote services and hardware where direct deployment is not possible.
+
+![image](https://github.com/user-attachments/assets/693e1b6a-e137-4f8b-ab80-340f127171bb)
+
+### Elastic agent on my Trusted Server
+My homelab enviornment uses a pfsense firewall as a gateway. Hence, all devices that are logically segmented pass through pfsense to reach out to the internet or send traffic over to another local network within my home. This means that pfsense sees all traffic within my local network. For this guide, I will install a stand alone elastic agent on one of my Proxmox Server to recieve traffic from pfsense via syslog then send it over to my elasticsearch server and ultimately visualize my home traffic in Kibana.
+
+Elastic Agent can monitor the host where it’s deployed, and it can collect and forward data from remote services and hardware. 
+
+1. To install a stnadalone Elastic Agent: 
+
+`curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-9.0.0-amd64.deb
+sudo dpkg -i elastic-agent-9.0.0-amd64.deb`
+
+Note: Utilize this link if you are installing on a non `deb` device 
+- https://www.elastic.co/docs/reference/fleet/install-standalone-elastic-agent
+- If you need to uninstall an Elastic Agent package on Debian Linux, note that the `dpkg -r` command to remove a package leaves the flavor file in place. Instead, `dpkg -P` must to be used to purge all package content and reset the flavor.
+
+2. Modify settings in the elastic-agent.yml as required
+
+You can use Kibana to generate an agent policy instead of doing it manual. In order to do this, you will navigate to the main menu within Kibana and click "Add Integrations" and search for an Elastic Agent Integration that is relevant for your needs. Just be sure, the integration you add is compatible with an Elastic Agent.  
+
+![image](https://github.com/user-attachments/assets/003131af-28df-4a0e-a999-65b6b8ca8e2d)
+
+The image above also provides a how-to-guide on how to install such an integration to your enviornment. Most integrations should include this. (quite convenient huh?)
+
+Note: 
+If you’re adding your first integration and no Elastic Agents are installed, Kibana may display a page that walks you through configuring the integration and installing Elastic Agent. If you see this page, click Install Elastic Agent, then click the standalone mode link. Follow the in-product instructions instead of the steps described here.
+
+3. Under Configure integration, enter a name and description for the integration.
+
+4. Click the down arrow next to enabled streams and make sure the settings are correct for your host.
+
+5. Under Apply to agent policy, select an existing policy, or click Create agent policy and create a new one.
+
+6. When you’re done, save and continue.
+
+7. A popup window gives you the option to add Elastic Agent to your hosts.
+
+8. When you’re done adding integrations, in the popup window, click Add Elastic Agent to your hosts to open the Add agent flyout.
+
+9. Click Run standalone and follow the in-product instructions to download Elastic Agent (if you haven’t already).
+
+10. Click Download Policy to download the policy file.
+
+![image](https://github.com/user-attachments/assets/bb5d1717-883c-46a4-ab3f-ebc70b1f73a5)
+
+Note: Since we downloaded a standalone agent - anytime we want to upgrade the integration, we would need to repeat each step above. This is one of the drawbacks of standalone. 
+
+## Configuring pfsense to send syslog traffic
+
+1. From the home screen, expand the "Status" tab and click on "System Logs"
+2. Click on "Settings" and scroll down to "Remote Logging Options"
+![image](https://github.com/user-attachments/assets/bf0b2ed8-6c79-40ad-9351-02cca720c6dd)
+3. Enter the device IP/hostname with the port that is listening for syslog traffic. By default it is port 9001.
+4. Click "Save"
+
+And in 4 easy steps, your pfsense device is now sending syslog traffic to your Elastic Agent!
+
+![image](https://github.com/user-attachments/assets/3fa95227-7cb4-401b-9c91-d75dcbe1aaec)
+
