@@ -3,12 +3,11 @@ The basis of this repo is to utilize bash scripts to automate the ELK stack depl
 
 ## Installation order
 If you're deploying the Elastic Stack in a self-managed cluster, then install the Elastic Stack products you want to use in the following order:
-Elasticsearch
-Kibana
-Logstash
-Elastic Agent or Beats
-APM
-Elasticsearch Hadoop
+
+- Elasticsearch
+- Kibana
+- Logstash
+- Elastic Agent or Beats
 
 # Elasticsearch
 ## Before you start, Elastic recommends you configure your operating system using this guide:
