@@ -197,7 +197,6 @@ Note: Since we downloaded a standalone agent - anytime we want to upgrade the in
 
 And in 4 easy steps, your pfsense device is now sending syslog traffic to your Elastic Agent!
 
-![image](https://github.com/user-attachments/assets/3fa95227-7cb4-401b-9c91-d75dcbe1aaec)
 
 ## Installing and uninstalling Elastic Agent
 
