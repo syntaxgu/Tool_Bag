@@ -1,5 +1,7 @@
+This readme is current as of 06/30/25
+
 # ELKSCRIPTS
-The basis of this repo is to utilize bash scripts to automate the ELK stack deployment. All of the resources provided in this repo come from the elastic documentation. This README will include links to each step of deploying an ELK stack in your home enviornment using Ubuntu or Debian Package.  
+The basis of this repo is to utilize bash scripts (Still pending QC check) to automate the ELK stack deployment. All of the resources provided in this repo come from the elastic documentation. This README will include links and a manual walkthrough to each step of deploying an ELK stack in your home enviornment using Ubuntu or Debian Package.  
 
 ## Installation order
 If you're deploying the Elastic Stack in a self-managed cluster, then install the Elastic Stack products you want to use in the following order:
