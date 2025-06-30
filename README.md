@@ -189,11 +189,27 @@ Note: Since we downloaded a standalone agent - anytime we want to upgrade the in
 
 1. From the home screen, expand the "Status" tab and click on "System Logs"
 2. Click on "Settings" and scroll down to "Remote Logging Options"
+
 ![image](https://github.com/user-attachments/assets/bf0b2ed8-6c79-40ad-9351-02cca720c6dd)
-3. Enter the device IP/hostname with the port that is listening for syslog traffic. By default it is port 9001.
-4. Click "Save"
+
+4. Enter the device IP/hostname with the port that is listening for syslog traffic. By default it is port 9001.
+5. Click "Save"
 
 And in 4 easy steps, your pfsense device is now sending syslog traffic to your Elastic Agent!
 
 ![image](https://github.com/user-attachments/assets/3fa95227-7cb4-401b-9c91-d75dcbe1aaec)
 
+## Installing and uninstalling Elastic Agent
+
+To install an Elastic Agent, using the package manager (APT):
+
+1. `curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-9.0.3-amd64.deb 
+sudo dpkg -i elastic-agent-9.0.3-amd64.deb
+sudo systemctl enable elastic-agent 
+sudo systemctl start elastic-agent`
+
+
+To uninstall Elastic Agent If using the package manager (APT), run:
+
+1. `sudo apt remove elastic-agent` to remove the package.  
+2. Use `sudo apt purge elastic-agent` to also remove configuration files, followed by `sudo apt autoremove` for dependencies.
