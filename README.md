@@ -174,16 +174,26 @@ If you’re adding your first integration and no Elastic Agents are installed, K
 4. Click the down arrow next to enabled streams and make sure the settings are correct for your host.
 
 5. Under Apply to agent policy, select an existing policy, or click Create agent policy and create a new one.
+(Dont forget to change the "syslog host" field to the correct interface when creating the policy! I struggled with this part for a hot minute and as a catch all you should just use the recommended `0.0.0.0` to bind all interfaces!)
 
-6. When you’re done, save and continue.
 
-7. A popup window gives you the option to add Elastic Agent to your hosts.
+![image](https://github.com/user-attachments/assets/d5dfe944-22ab-494b-803f-0dd9c71990fb)
 
-8. When you’re done adding integrations, in the popup window, click Add Elastic Agent to your hosts to open the Add agent flyout.
 
-9. Click Run standalone and follow the in-product instructions to download Elastic Agent (if you haven’t already).
+7. When you’re done, save and continue.
 
-10. Click Download Policy to download the policy file.
+8. A popup window gives you the option to add Elastic Agent to your hosts.
+
+9. When you’re done adding integrations, in the popup window, click Add Elastic Agent to your hosts to open the Add agent flyout.
+
+10. Click Run standalone and follow the in-product instructions to download Elastic Agent (if you haven’t already).
+
+11. Click Download Policy to download the policy file.
+
+12. Next, paste this policy into `elastic-agent.yml` using `nano` and `ctrl+x` to save.
+
+13. Finally, run `systemctl restart elastic-agent.service` to restart the agent.
+
 
 ![image](https://github.com/user-attachments/assets/bb5d1717-883c-46a4-ab3f-ebc70b1f73a5)
 
