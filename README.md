@@ -2,6 +2,8 @@ This readme is current as of 06/30/25
 
 The basis of this repo is to consolidate each project I have put into my home lab.  
 
+The `elkscript` is my attempt to automate deploying the elkstack on a debian enviornment. Please feel free to tailor this script to your own home lab deployment. 
+
 # THE ELKSTACK
 The below resources are derived from the elastic documentation and work captured while deploying the ELK stack within my home lab enviornment. This README will include links and a manual walkthrough to each step of deploying an ELK stack in your home enviornment using Ubuntu or Debian Package.  
 
