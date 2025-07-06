@@ -6,7 +6,7 @@ The `elkscript.sh` is my attempt to automate deploying the elkstack on a Debian/
 
 # About my Homelab
 
-My current homelab set up uses pfsense as a firewall/gateway to my ISP. It provides DNS, DHCP, routing, VLANs and NORDVPN (for certain VLANs) functionality to all my self hosted devices. For DNS, I'm using cloudflare as my upstream DNS provider (1.1.1.1 & 1.0.0.1) and also provides a way to remote into my home network when I'm traveling. 
+My current homelab set up uses pfsense as a firewall/gateway to my ISP. It provides DNS, DHCP, routing, VLANs and NORDVPN (for certain VLANs) functionality to all my self hosted devices. For DNS, I'm using cloudflare as my upstream DNS provider (1.1.1.1 & 1.0.0.1) and also provides a way for myself to remote into my home network while I'm traveling. For security, I have all my devices DNS settings configured to use pfsense as their DNS server and nothing else. For extra security, I added a floating firewall rule that blocks outbound DNS to any IP except pfsense. 
 
 (Home topology image pending)
 
